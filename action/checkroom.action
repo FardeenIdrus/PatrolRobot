@@ -1,0 +1,8 @@
+int32 num_checks
+---
+int32[] rules_broken_count
+---
+geometry_msgs/Point robot_position
+int32 rule_broken
+
+

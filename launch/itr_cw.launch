@@ -1,0 +1,19 @@
+<launch>
+       <arg name="vid_folder" default="/home/k22022028/Videos"/>
+       <arg name ="nchecks" default="1"/>
+
+       <node pkg="second_coursework" type="itr_cw_video.pyc" name="itr_cw_video" output="screen" args="$(arg vid_folder)"/>
+       <node pkg="second_coursework" type="yolo_ros.py" name="yolo" output ="screen"/>
+
+       <include file= "$(find speech_database)/launch/speech.launch"/>
+       <include file="$(find rosplan_stage_demo)/launch/empty_stage_single_robot.launch"/>
+       <node name="rviz" pkg="rviz" type="rviz" args="-d $(find rosplan_stage_demo)/config/rosplan_stage_demo.rviz" output="screen"/>
+
+       <node pkg="second_coursework" type="movetoroom_node.py" name="movetoroom" output ="screen"/>
+       <node pkg="second_coursework" type="checkroom_node.py" name="checkroom" output ="screen"/>
+
+       <node pkg="second_coursework" type="main_node.py" name="main_node" output="screen">
+           <param name="nchecks" value="$(arg nchecks)" />
+       </node>
+</launch>
+
