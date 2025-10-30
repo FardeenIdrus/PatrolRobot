@@ -271,4 +271,5 @@ The system provides:
 
 ## License
 
-This project was developed as coursework demonstrating ROS integration, state machine design, and computer vision applications in robotics.
+MIT License - Free to use and modify.
+
